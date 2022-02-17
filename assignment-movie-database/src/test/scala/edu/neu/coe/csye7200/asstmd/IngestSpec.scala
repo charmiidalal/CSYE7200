@@ -2,7 +2,9 @@ package edu.neu.coe.csye7200.asstmd
 
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
+
 import scala.io.{Codec, Source}
+import scala.util
 import scala.util._
 
 /**
@@ -21,8 +23,8 @@ class IngestSpec extends AnyFlatSpec with Matchers {
     val ingester = new Ingest[Int]()
     val xys = ingester(source).toSeq
     // check that xys has exactly one element, consisting of Success(42) -- 10 points
-    // TO BE IMPLEMENTED
-    ???
+    xys should have size 1
+    xys should contain (Success(42))
   }
 
   it should "work for movie database" in {
