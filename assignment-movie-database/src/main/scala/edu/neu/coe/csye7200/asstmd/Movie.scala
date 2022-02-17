@@ -1,7 +1,5 @@
 package edu.neu.coe.csye7200.asstmd
 
-import edu.neu.coe.csye7200.asstmd.Name.rName
-
 import scala.io.Source
 import scala.util.Try
 
