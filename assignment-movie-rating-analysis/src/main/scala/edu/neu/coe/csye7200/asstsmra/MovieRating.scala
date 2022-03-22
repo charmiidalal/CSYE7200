@@ -35,20 +35,21 @@ class MovieRating
 
   def meanMovieRatingByAll() : Any = {
     val movie_analysis: DataFrame = movieMetadata.select( "imdb_score").agg(functions.avg("imdb_score"))
+    val ratingForAll = movie_analysis.collect()(0).get(0)
     println(s"*************************************")
-    println(s"Mean of Movie rating by All Movies:  ${movie_analysis.collect()(0).get(0)}")
+    println(s"Mean of Movie rating by All Movies:  ${ratingForAll}")
 
-    movie_analysis.collect()(0).get(0)
+    ratingForAll
   }
 
 
   def standardDevMovieRating(): Any = {
     val movie_deviation: DataFrame = movieMetadata.select("imdb_score").agg(functions.stddev("imdb_score"))
-
+    val standardDeviation = movie_deviation.collect()(0).get(0)
     println(s"*************************************")
-    println(s"Standard Deviation of Movie Rating for All Movies: ${movie_deviation.collect()(0).get(0)}")
+    println(s"Standard Deviation of Movie Rating for All Movies: ${standardDeviation}")
 
-    movie_deviation.collect()(0).get(0)
+    standardDeviation
   }
 }
 
