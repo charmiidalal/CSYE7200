@@ -1,17 +1,13 @@
-name := "SparkWordCount"
+name := "MovieRatingAnalysis"
 
-version := "0.1"
+version := "1.0"
 
-scalaVersion := "2.12.12"
+scalaVersion := "2.12.15"
 
-scalacOptions in(Compile, doc) ++= Seq("-groups", "-implicits", "-deprecation", "-Ywarn-dead-code", "-Ywarn-value-discard", "-Ywarn-unused" )
+val scalaTestVersion = "3.2.1"
 
-val scalaTestVersion = "3.2.3"
-
-libraryDependencies += "org.scalatest" %% "scalatest" % scalaTestVersion % "test"
-
-libraryDependencies += "org.apache.spark" %% "spark-core" % "3.0.1"
-
-libraryDependencies += "org.apache.spark" %% "spark-sql" % "3.0.1"
-
-parallelExecution in Test := false
+libraryDependencies ++= Seq(
+  "org.scalatest" %% "scalatest" % "3.2.11" % "test",
+  "org.apache.spark" %% "spark-core" % scalaTestVersion,
+  "org.apache.spark" %% "spark-sql" % scalaTestVersion
+)
